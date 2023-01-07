@@ -1,38 +1,132 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.topBar {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: stretch;
+  background-color: #19173c;
   color: white;
+  height: 80px;
+  box-shadow: 0 6px 2px -2px gray
+}
+.topBarFlex{ 
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+}
+.topBarElements{
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+
+}
+.addSlot{
+  margin-left: 20%;
+  margin-top:5%;
+}
+.loginBox {
+  margin-top: 25px;
+  width: 150px;
+  height: 45px;
+  font-size: 15px;
+}
+.addItemText {
+  margin-left: 10%;
+  display: flex;
+  flex-direction: row;  
+  width: 400px;
+  text-align: left;
 }
 
-.App-link {
-  color: #61dafb;
+.addItemBox {
+  padding: 5px;
+  display: block;
+  margin: 10px;
+  width: 40px;
+  border: 1px solid aquamarine;
+}
+.addItemBoxDesc {
+  padding: 5px;
+  display: block;
+  margin: 10px;
+  width: 300px;
+  border: 1px solid aquamarine;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.appButton {
+  margin: 10px;
+  width: 150px;
+  padding: 10px;
+  background-color: aquamarine;
+  border: solid 1px;
+  cursor: pointer;
+  display: block;
 }
+.formflex{
+  
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+}
+.formflex2{
+  
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+  margin-bottom: 1%;
+  margin-top: 4%;
+}
+.formRight{
+  margin-left: 50%;
+}
+.formbox{ 
+  
+  border: 2px solid grey; 
+  display: flex;
+  flex-direction: row;
+  width: 20px;
+  margin-left: 10px;
+  margin-top: 1px;
+}
+.formboxdesc{ 
+  text-align: center;
+  border: 2px solid black; 
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  margin-left: 14px;
+  margin-right: 5px;
+  margin-top: 1px;
+}
+.formtopic{ 
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  width: 220px;
+  margin-left: 170px;
+  margin-top: 1px;
+}
+.message{
+  margin-top: 2%;
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
