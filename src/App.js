@@ -26,13 +26,7 @@ function App(props) {
   </>
 
 
-if(userJwt != null) {
 
-  authRoutes = <Route path="/add/:companyId" element={ <AddSlot userJwt={ userJwt } logout={() => setUserJwt(null)} /> }/>
-
-}else {
-  <Route path="/Login" element={<Login setUserJwt={ setUserJwt } />} />
-}
 
 
 

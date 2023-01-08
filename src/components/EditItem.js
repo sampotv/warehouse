@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 
@@ -14,7 +14,7 @@ function UpdateItem(props) {
     const [description, setDescription] = useState('');    
     const [item, setItem] = useState('');
     let navigate = useNavigate();
-    const {idItem} = useParams('');
+
     const [message, setMessage] = useState();
     
 

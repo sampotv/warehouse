@@ -1,12 +1,11 @@
 import React, { useState  } from 'react'
 import { useNavigate } from 'react-router-dom'
-import jwt_decode from "jwt-decode";
 
 export default function Login(props) {
   
     const [ username, setUsername ] = useState('');
       const [ password, setPassword ] = useState('');  
-      const { userJwt } = props
+     
  
      let navigate = useNavigate();
 

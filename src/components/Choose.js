@@ -1,8 +1,6 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
-import axios from "axios";
 import jwt_decode from "jwt-decode";
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 //import { Link } from 'react-router-dom';
@@ -13,7 +11,7 @@ export default function Test(props) {
     if(userJwt != null) { 
         var decoded = jwt_decode(userJwt);
 }
-
+/*
     const [ storages, setStorage ] = useState([]);
     //const { companyId } = useParams('');
 
@@ -24,6 +22,7 @@ export default function Test(props) {
                 setStorage(response.data);  }
                 storage();
     }, []);
+    */
 
 
 if (userJwt == null){

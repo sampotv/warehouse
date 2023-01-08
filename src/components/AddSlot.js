@@ -15,7 +15,7 @@ function AddSlot(props){
     const [floor, setFloor] = useState('');
     const [place, setPlace] = useState('');
     const [description, setDescription] = useState('');
-    const {companyId} = useParams('');
+    //const {companyId} = useParams('');
     const [item, setItem] = useState([]);
     const [message, setMessage] = useState();
  
