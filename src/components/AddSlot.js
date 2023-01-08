@@ -10,6 +10,7 @@ function AddSlot(props){
         var decoded = jwt_decode(userJwt);
     }
     let navigate = useNavigate();
+   
     const [row1, setRow1] = useState('');
     const [floor, setFloor] = useState('');
     const [place, setPlace] = useState('');
@@ -49,8 +50,12 @@ function AddSlot(props){
                 setMessage('Error occured');
               } else {
                 
-                setMessage("New item space added");                
-              }
+                setMessage("New item space added");
+                navigate(`/empty`);
+                setTimeout(() => {
+                  navigate(`/addslot/${decoded.idCompany}`, { replace: true });
+                }  
+              )}
             } catch (err) {
               console.log(err);
         
@@ -89,7 +94,8 @@ function AddSlot(props){
             onChange={(e) => { setDescription(e.target.value) }}/>
             <button className='appButton'type='submit'>Create new item slot</button>
             
-            <div className="message">{ message }</div>
+            <div className="message">{message} </div>
+            
             </form>
             {item.map((item) => (
         <div>

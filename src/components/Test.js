@@ -2,9 +2,22 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+function Test(props){
+
+    let navigate = useNavigate();
+    const { userJwt } = props
+    if(userJwt != null) {
+        var decoded = jwt_decode(userJwt);
+        navigate(`/addslot/${decoded.idCompany}`, { replace: true });
+    }
 
 
+
+}
+export default Test
+/*
 //import { Link } from 'react-router-dom';
 
 export default function Test(props) {

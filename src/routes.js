@@ -106,22 +106,12 @@ app.get(`/warehouse/:idCompany`, function(req, res) {
   });   
 });
 
-//Display your warehouse
+//Display your warehouse with detailed information
 app.get(`/warehouseinfo/:idCompany`, function(req, res) { 
   dbConn.getConnection(function (err, connection) {
     dbConn.query('select *, date_format(lastEdited, "%d.%m.%Y : %H.%i.%s") as lastE from warehouseitem WHERE idCompany=?',[req.params.idCompany], function(error, result) {
       if (error) throw error;
       console.log("warehouse fetched");     
-      res.send(result)  
-    });
-  });   
-});
-
-app.get(`/warehouseitem`, function(req, res) { 
-  dbConn.getConnection(function (err, connection) {
-    dbConn.query('SELECT * FROM warehouseItem', function(error, result) {
-      if (error) throw error;
-      console.log("warehouseitems fetched");     
       res.send(result)  
     });
   });   
@@ -216,7 +206,7 @@ app.get(`/user/:idUser`, function(req, res) {
   });   
 });
 
-
+// Add new itemslot to warehouse
   app.post(`/addslot/:idCompany`, function(req, res) {
     dbConn.getConnection(function (err, connection) {      
        dbConn.query('INSERT INTO warehouseitem (row1, floor, place, description, idCompany, idUser) VALUES ( ?, ?, ?, ?, ?, ?)',
@@ -240,10 +230,11 @@ app.get(`/warehouseitem/:idItem`, function(req, res) {
   });   
 });
 
-  app.post(`/edititem/:idItem`, function(req, res) {   //post or put
+// Update warehouseitemslot with new description
+  app.post(`/edititem/:idItem`, function(req, res) {   
     dbConn.getConnection(function (err, connection) {      
       dbConn.query('UPDATE warehouseitem SET description = ?, idCompany = ? , idUser = ? WHERE idItem = ?',
-       [ req.body.description, req.body.idCompany, req.body.idUser, req.params.idItem ],
+       [ req.body.description, req.body.idCompany, req.body.idUser, req.body.idItem ],
       function(error, result) {
         if (error) throw error;
         console.log("Itemslot updated");
@@ -252,6 +243,7 @@ app.get(`/warehouseitem/:idItem`, function(req, res) {
     });   
   });
 
+  // Get last entry from company warehouse slots
   app.get(`/lastslot/:idCompany`, function(req, res) {
     dbConn.getConnection(function (err, connection) {
       dbConn.query('select * from warehouseitem where idCompany = ? order by idItem desc limit 1',

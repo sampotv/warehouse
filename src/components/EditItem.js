@@ -13,7 +13,7 @@ function UpdateItem(props) {
 
     const [description, setDescription] = useState('');    
     const [item, setItem] = useState('');
-    const navigate = useNavigate();
+    let navigate = useNavigate();
     const {idItem} = useParams('');
     const [message, setMessage] = useState();
     
@@ -22,7 +22,7 @@ function UpdateItem(props) {
         e.preventDefault();
         
         try {
-            let res = await fetch(`http://localhost:2000/edititem/${idItem}`, {
+            let res = await fetch(`http://localhost:2000/edititem/${decoded.idItem}`, {
                 method: 'POST',
                 headers: {
                   "Content-Type": "application/json",
@@ -73,7 +73,17 @@ function UpdateItem(props) {
         <div className="addSlot">
             
             <div className='formflex' >Row Floor Place Current content</div>
-           
+            {item.map((item) => (
+        <div>
+            <div key={item.idItem} className=''>
+              <div className='formflex' >
+              <div className='formbox' ><div className='App' >{item.row1 }</div></div>
+              <div className='formbox' >{item.floor} </div>
+              <div className='formbox' >{item.place}</div>
+              <div className='formboxdesc' >{item.description} </div>
+              </div></div></div>
+                
+          )) }
             
             <form onSubmit={updateItem}>
             <input type="text" value={description} placeholder='Description' className="addItemBoxDesc"
