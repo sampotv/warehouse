@@ -106,17 +106,6 @@ app.get(`/warehouse/:idCompany`, function(req, res) {
   });   
 });
 
-//Display your warehouse with detailed information
-app.get(`/warehouseinfo/:idCompany`, function(req, res) { 
-  dbConn.getConnection(function (err, connection) {
-    dbConn.query('select *, date_format(lastEdited, "%d.%m.%Y : %H.%i.%s") as lastE from warehouseitem WHERE idCompany=?',[req.params.idCompany], function(error, result) {
-      if (error) throw error;
-      console.log("warehouse fetched");     
-      res.send(result)  
-    });
-  });   
-});
-
 //params test
 app.get("/warehouse2/:idUser", (req,res)=>{
 
@@ -195,10 +184,42 @@ app.post(`/user`, function(req, res) {
     });   
   });
 
+//Display your warehouse with detailed information
+app.get(`/warehouseinfo/:idCompany`, function(req, res) { 
+  dbConn.getConnection(function (err, connection) {
+    dbConn.query('select *, date_format(lastEdited, "%d.%m.%Y : %H.%i.%s") as lastE from warehouseitem WHERE idCompany=?',[ req.params.idCompany], function(error, result) {
+      if (error) throw error;
+      console.log("warehouse fetched");     
+      res.send(result)  
+    });
+  });   
+});
+
+
+app.get(`/warehouseinfo2/:idCompany`, function(req, res) { 
+  dbConn.getConnection(function (err, connection) {
+    dbConn.query('select warehouseitem.row1, warehouseitem.floor, warehouseitem.place, warehouseitem.description, date_format(lastEdited, "%d.%m.%Y : %H.%i.%s") as lastEdit, user.firstname, user.lastname from warehouseitem inner join user on warehouseitem.idUser=user.idUser where warehouseitem.idCompany=?',[ req.params.idCompany], function(error, result) {
+      if (error) throw error;
+      console.log("warehouse fetched");     
+      res.send(result)  
+    });
+  });   
+});
+
   //Display user information
 app.get(`/user/:idUser`, function(req, res) { 
   dbConn.getConnection(function (err, connection) {
     dbConn.query('SELECT * FROM user WHERE idUser=?',[req.body.idUser], function(error, result) {
+      if (error) throw error;
+      console.log("userinfo fetched");     
+      res.send(result)  
+    });
+  });   
+});
+
+app.get(`/useri`, function(req, res) { 
+  dbConn.getConnection(function (err, connection) {
+    dbConn.query('SELECT * FROM user WHERE idUser = ?',[req.body.idUser], function(error, result) {
       if (error) throw error;
       console.log("userinfo fetched");     
       res.send(result)  
@@ -234,7 +255,7 @@ app.get(`/warehouseitem/:idItem`, function(req, res) {
   app.post(`/edititem/:idItem`, function(req, res) {   
     dbConn.getConnection(function (err, connection) {      
       dbConn.query('UPDATE warehouseitem SET description = ?, idCompany = ? , idUser = ? WHERE idItem = ?',
-       [ req.body.description, req.body.idCompany, req.body.idUser, req.body.idItem ],
+       [ req.body.description, req.body.idCompany, req.body.idUser, req.params.idItem ],
       function(error, result) {
         if (error) throw error;
         console.log("Itemslot updated");

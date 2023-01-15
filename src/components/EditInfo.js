@@ -17,18 +17,20 @@ export default function WarehouseView(props) {
   useEffect(() => {
     const storage = async () => {
         const response = await axios.get(
-            `http://localhost:2000/warehouseinfo/${decoded.idCompany}`);
+            `http://localhost:2000/warehouseinfo2/${decoded.idCompany}`);
             setItem(response.data);  }
             storage();
 }, []);
+
+/*
 useEffect(() => {
-    const useri = async () => {
+    const userfunc = async () => {
         const response = await axios.get(
             `http://localhost:2000/user/${decoded.idUser}`);
-            setUser(response.data);  }
-            useri();
+            setUser(response.data);}
+            userfunc();
 }, []);
-
+*/
 
 if (userJwt == null){
     return (
@@ -39,26 +41,26 @@ if (userJwt == null){
     return (
         <div><h3>Warehouse detailed status</h3>
             <div className='formflex' >Row Floor Place Content
-            <div className='formtopic'>Last edited</div><div>Last editor</div></div>
+                <div className='formtopic'>Last edited</div><div>Last editor</div></div>
             {item.map((item) => (
-                <div>
                     <div key={item.idUser} className=''>
                         <div className='formflex' >
                             <div className='formbox' ><div className='App' >{item.row1}</div></div>
                             <div className='formbox' >{item.floor} </div>
                             <div className='formbox' >{item.place}</div>
                             <div className='formboxdesc' >{item.description} </div>
-                            <div className='formboxdesc' >{item.lastE}</div>
-                            {user.map((user) => (
-                <div>
-                    <div key={user.idUser} className='formboxdesc'>
-                        {user.firstname} {user.lastname}
-                </div></div>
-            ))}                          
-                        </div></div></div>
+                            <div className='formboxdesc' >{item.lastEdit}</div>                   
+                            <div className='formboxdesc' >{item.firstname}{item.lastname}</div>
+                        </div></div>
             ))}
-            
+
         </div>
     )
 }
-  
+ /*{user.map((user) => (
+                                <div key={item.idUser} className=''>
+                                    <div  className='formboxdesc'>
+                                        {user.firstname} {user.lastname}
+                                    </div></div>
+                            ))}
+                            */

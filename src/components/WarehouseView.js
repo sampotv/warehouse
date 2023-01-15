@@ -33,6 +33,14 @@ export default function WarehouseView(props) {
             storage();
 }, []);
  
+const [whitem, setWhitem] = useState('');
+const filter = (e) => {
+  const key = e.target.value; 
+  setWhitem(key);
+};
+let searchItems = item.filter(items => items.description.toLowerCase().includes(whitem.toLowerCase()))
+
+
 if (userJwt == null){
     return (
         <div><h2>You are logged out.</h2>
@@ -41,9 +49,35 @@ if (userJwt == null){
     )}
   return (
     <div><h3>Warehouse status</h3>
+      <div className="">
+        <input
+          type="search"
+          value={whitem}
+          onChange={filter}
+          className=""
+          placeholder="Search from warehouse"/></div>
+
      <div className='formflex' >Row Floor Place Content
      <div className='formRight'><Link to={`/editinfo`}><button>Show detailed update information</button></Link></div></div>
-        {item.map((item) => (
+        {searchItems.length ? searchItems.map((item) => (
+        <div>
+            <div key={item.idUser} className=''>
+              <div className='formflex' >
+              <div className='formbox' ><div className='App' >{item.row1 }</div></div>
+              <div className='formbox' >{item.floor} </div>
+              <div className='formbox' >{item.place}</div>
+              <div className='formboxdesc' >{item.description} </div>
+              <Link to ={`/edititem/${item.idItem}`}><button>Edit content</button></Link> </div>
+                </div></div>
+              
+          )) : <div>No results, try other keyword</div> }
+          
+    </div>
+  )}
+  
+
+  /*
+  {item.map((item) => (
         <div>
             <div key={item.idUser} className=''>
               <div className='formflex' >
@@ -55,7 +89,4 @@ if (userJwt == null){
                 </div></div>
                 
           )) }
-          
-    </div>
-  )}
-  
+  */
