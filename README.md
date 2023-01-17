@@ -17,4 +17,5 @@ With detailed status you get also the last time itemslot was uppdated and who di
 
 New itemslots can be created. Last itemslot is displayed so that you see what place was the last one inserted
 
-![image](https://user-images.githubusercontent.com/91623423/212955691-b8f08970-cdfa-4a07-83ab-1005282188c6.png)
+![image](https://user-images.githubusercontent.com/91623423/212955954-56c5d89a-49af-4a80-bada-3d8561b95ca3.png)
+
