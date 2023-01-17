@@ -1,5 +1,7 @@
 This is a MySQL, node.js, React project. Back at /src/routes.js
 
+Run application, create new user or use testuser 123 with passw 123
+
 Main purpose of this application is to build a warehouse configuration and add items on specified places. User can then update itemslots for new arrivals or deliveries.
 First you create an user and login
 ![image](https://user-images.githubusercontent.com/91623423/212951873-f9bffa05-1256-4e8e-844d-29ef784921c9.png)
