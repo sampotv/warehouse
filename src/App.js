@@ -15,16 +15,18 @@ import AddSlot from './components/AddSlot';
 
 const jwtFromStorage = window.localStorage.getItem('appAuthData');
 
-function App(props) {
+function App() {
 
   const [ userJwt, setUserJwt ] = useState(jwtFromStorage);
+
+  /*
   let authRoutes = <>
   <Route path="/login" element = { <Login login={(token) => {
         window.localStorage.setItem('appAuthData', token);
         setUserJwt(token);
       }} /> } />                 
   </>
-
+*/
 
 
 

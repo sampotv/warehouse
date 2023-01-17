@@ -103,10 +103,10 @@ function AddSlot(props){
             <div className='formflex2' > Last inserted itemslot for your warehouse</div>
             <div className='formflex' >Row Floor Place Content</div>
               <div className='formflex' >
-              <div className='formbox' ><div className='App' >{item.row1 }</div></div>
-              <div className='formbox' >{item.floor} </div>
-              <div className='formbox' >{item.place}</div>
-              <div className='formboxdesc' >{item.description} </div>
+              <div className='formbox' ><div className='slidetextright'>{item.row1 }</div></div>
+              <div className='formbox' ><div className='slidetextright'>{item.floor} </div></div>
+              <div className='formbox' ><div className='slidetextright'>{item.place}</div></div>
+              <div className='formboxdesc' ><div className='slidetextright'>{item.description} </div></div>
                </div>
                 </div></div>
                 

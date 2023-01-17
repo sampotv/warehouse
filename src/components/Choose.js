@@ -1,71 +1,49 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import jwt_decode from "jwt-decode";
 import { Link } from 'react-router-dom';
+import axios from "axios";
 
 
 //import { Link } from 'react-router-dom';
 
 export default function Test(props) {
 
+    const [company, setCompany] = useState([]);
+
     const { userJwt } = props
     if(userJwt != null) { 
         var decoded = jwt_decode(userJwt);
 }
-/*
-    const [ storages, setStorage ] = useState([]);
-    //const { companyId } = useParams('');
 
     useEffect(() => {
-        const storage = async () => {
+        const comp = async () => {
             const response = await axios.get(
-                `http://localhost:2000/warehouse/${decoded.idCompany}`);
-                setStorage(response.data);  }
-                storage();
+                `http://localhost:2000/company/${decoded.idCompany}`);
+                setCompany(response.data);  }
+                comp();
     }, []);
-    */
-
 
 if (userJwt == null){
     return (
-        <div><h2>You are logged out.</h2>
+        <div><h2> You are logged out.</h2>
         <Link to={`/Login`} ><button className='loginBox'type='submit'>Login</button></Link>
         </div>
     )}
 return (
     <div className=''>
-        <h1>Warehouse</h1>
+        <h1>{company.map((company) => (
+        <div>
+            <div key={company.idCompany} className=''>
+            {company.company_name } Warehouse
+                </div></div>
+                
+          )) }</h1>
+        
        <Link to={"/WarehouseView"}><button className='loginBox'type='submit'>Display warehouse</button></Link>
-       <h1></h1>
-
+       
+       <div className='App'></div>
        <Link to={`/addslot/${decoded.idCompany}`}><button className='loginBox'type='submit'>Edit warehouse</button></Link>
 
     </div>
 )
 }
-/*
-    useEffect(() => {
-        async function fetch(){ 
-            const storage = await fetch(
-                `http://localhost:2000/warehouse/${decoded.idUser}`)
-                .then((res) =>
-      res.json()
-                )
-                setStorage(storage)}
-}, []);
-return (
-    <div className=''>
-        choose
-        { storages.map(sto => (
-            <div key={storages.idCompany}>            
-            
-                { sto.row } {sto.place } { sto.floor } { sto.description }
-                {storages.map((storages) => (
-        <div key={storages.idCompany} >
-        <div><Link to={`/addslot/${storages.idCompany}`}><button className='loginBox'type='submit'>Edit warehouse</button></Link></div></div>
-       ))}
-            </div>
-              )  )}
-    </div>
-)
-}
-*/

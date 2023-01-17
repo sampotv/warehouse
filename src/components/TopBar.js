@@ -13,7 +13,7 @@ export default function TopBar() {
                 <div className=''>Warehouse Maintenance Tool</div>
                 <div className='topBarFlex'>                
                 <div className='topBarElements'><Link to = "/">Frontpage</Link></div>
-                <div className='topBarElements'><Link to ="/choose">Edit</Link></div>
+                <div className='topBarElements'><Link to ="/choose">Start</Link></div>
                 <div className='topBarElements'><Link to ="/WarehouseView">Warehouse view</Link></div>
                 <div className='topBarElements'><Link onClick={logout} to ="/">Logout</Link></div>
                 </div>

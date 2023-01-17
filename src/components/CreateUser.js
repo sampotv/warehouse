@@ -51,22 +51,22 @@ return (
         <form onSubmit={ addUser }>
             <div className=''>Give username:
             <input type="text" 
-            value = {username} placeholder='Username' className='' onChange = {(e) => setUserName(e.target.value)}></input>
+            value = {username} placeholder='Username' className='slidetextright2' onChange = {(e) => setUserName(e.target.value)}></input>
             </div>
-            <div className=''>Give password:
+            <div className='up'>Give password:
             <input type="text" 
-            value = {password} placeholder='Password' className='' onChange = {(e) => setPassword(e.target.value)}></input>
+            value = {password} placeholder='Password' className='slidetextright2' onChange = {(e) => setPassword(e.target.value)}></input>
             </div>
-            <div className=''>Give firstname:
+            <div className='up'>Give firstname:
             <input type="text" 
-            value = {firstname} placeholder='Firstname' className='' onChange = {(e) => setFirstName(e.target.value)}></input>
+            value = {firstname} placeholder='Firstname' className='slidetextright2' onChange = {(e) => setFirstName(e.target.value)}></input>
             </div>
-            <div className=''>Give lastname:
+            <div className='up'>Give lastname:
             <input type="text" 
-            value = {lastname} placeholder='Lastname' className='' onChange = {(e) => setLastName(e.target.value)}></input>
+            value = {lastname} placeholder='Lastname' className='slidetextright2' onChange = {(e) => setLastName(e.target.value)}></input>
             </div>
-            <div className=''>Company:
-            <select className=''
+            <div className='up'>Company:
+            <select className='slidetextright'
             type="text"
             value = {idCompany}
             onChange = {(e) => setIdCompany(e.target.value)}>

@@ -11,9 +11,7 @@ export default function WarehouseView(props) {
 }
   
   const [item, setItem] = useState([]);
-  const [user, setUser] = useState([]);
-
-
+ 
   useEffect(() => {
     const storage = async () => {
         const response = await axios.get(
@@ -22,15 +20,12 @@ export default function WarehouseView(props) {
             storage();
 }, []);
 
-/*
-useEffect(() => {
-    const userfunc = async () => {
-        const response = await axios.get(
-            `http://localhost:2000/user/${decoded.idUser}`);
-            setUser(response.data);}
-            userfunc();
-}, []);
-*/
+const [whitem, setWhitem] = useState('');
+const filter = (e) => {
+  const key = e.target.value; 
+  setWhitem(key);
+};
+let searchItems = item.filter(items => items.firstname.toLowerCase().includes(whitem.toLowerCase()) || items.lastname.toLowerCase().includes(whitem.toLowerCase()))
 
 if (userJwt == null){
     return (
@@ -38,29 +33,31 @@ if (userJwt == null){
         <Link to={`/Login`} ><button className='loginBox'type='submit'>Login</button></Link>
         </div>
     )}
+ 
     return (
         <div><h3>Warehouse detailed status</h3>
+        <div className="">
+        <input
+          type="search"
+          value={whitem}
+          onChange={filter}
+          className=""
+          placeholder="Search with editor name"/></div>
             <div className='formflex' >Row Floor Place Content
                 <div className='formtopic'>Last edited</div><div>Last editor</div></div>
-            {item.map((item) => (
+            {searchItems.length ? searchItems.map((item) => (
                     <div key={item.idUser} className=''>
                         <div className='formflex' >
-                            <div className='formbox' ><div className='App' >{item.row1}</div></div>
-                            <div className='formbox' >{item.floor} </div>
-                            <div className='formbox' >{item.place}</div>
-                            <div className='formboxdesc' >{item.description} </div>
-                            <div className='formboxdesc' >{item.lastEdit}</div>                   
-                            <div className='formboxdesc' >{item.firstname}{item.lastname}</div>
+                            <div className='formbox' ><div className='slidetextright' >{item.row1}</div></div>
+                            <div className='formbox' ><div className='slidetextright'>{item.floor}</div></div>
+                            <div className='formbox' ><div className='slidetextright'>{item.place}</div></div>
+                            <div className='formboxdesc' ><div className='slidetextright'>{item.description} </div></div>
+                            <div className='formboxdate' ><div className='slidetextright'>{item.lastEdit}</div></div>                
+                            <div className='formboxeditor' ><div className='slidetextright'>{item.firstname} {item.lastname}</div></div>
                         </div></div>
-            ))}
+            )): <div>No results, try other keyword</div>}
 
         </div>
     )
 }
- /*{user.map((user) => (
-                                <div key={item.idUser} className=''>
-                                    <div  className='formboxdesc'>
-                                        {user.firstname} {user.lastname}
-                                    </div></div>
-                            ))}
-                            */
+

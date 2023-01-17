@@ -28,7 +28,7 @@ export default function Login(props) {
          if (response.status !== 200) {
            throw new Error("cannot fetch data");
          }
-         let data = await response.json()
+          await response.json()
          .then( (data) => {
            props.setUserJwt(data.token)
            //var decoded = jwt_decode(userJwt);

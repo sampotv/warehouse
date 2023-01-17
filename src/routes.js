@@ -97,7 +97,7 @@ if (err) throw (err)
 
 //Display your warehouse
 app.get(`/warehouse/:idCompany`, function(req, res) { 
-  dbConn.getConnection(function (err, connection) {
+  dbConn.getConnection(function () {
     dbConn.query('SELECT * FROM warehouseItem WHERE idCompany=?',[req.params.idCompany], function(error, result) {
       if (error) throw error;
       console.log("warehouse fetched");     
@@ -121,7 +121,7 @@ app.get("/warehouse2/:idUser", (req,res)=>{
 
 // Add warehouse itemslot
 app.post(`/additem/:idCompany`, function(req, res) {
-  dbConn.getConnection(function (err, connection) {
+  dbConn.getConnection(function () {
     dbConn.query('INSERT INTO warehouseitem (row, floor, place, description, idCompany) VALUES (?, ?, ?, ?, ?)',
     [req.body.row, req.body.floor, req.body.place, req.body.description, req.params.idCompany],
     function(error, result) {
@@ -135,7 +135,7 @@ app.post(`/additem/:idCompany`, function(req, res) {
 
 // get all user information
 app.get(`/user/:idUser`, function(req, res) {
-  dbConn.getConnection(function (err, connection) {
+  dbConn.getConnection(function () {
     dbConn.query('SELECT * FROM user WHERE idUser=?',[req.params.idUser], function(error, result) {
       if (error) throw error;
       console.log("userinfo fetched");     
@@ -144,9 +144,20 @@ app.get(`/user/:idUser`, function(req, res) {
   });   
 });
 
+// get company name
+app.get(`/company/:idCompany`, function(req, res) {
+  dbConn.getConnection(function () {
+    dbConn.query('SELECT * FROM company WHERE idCompany=?',[req.params.idCompany], function(error, result) {
+      if (error) throw error;
+      console.log("Company name fetched");     
+      res.send(result)  
+    });
+  });   
+});
+
 // Get all warehouseitems for testing
 app.get(`/test`, function (req, res) {
-    dbConn.getConnection (function (err, connection) {
+    dbConn.getConnection (function () {
         dbConn.query('SELECT * FROM warehouseitem', function (error, result) {
             if (error) throw error;
             console.log("Warehouse items fetched");
@@ -157,7 +168,7 @@ app.get(`/test`, function (req, res) {
 
 //Update warehouseitem description
 app.post(`/test/:idWarehouseItem`, function(req, res) {
-  dbConn.getConnection(function (err, connection) {
+  dbConn.getConnection(function () {
     dbConn.query('UPDATE warehouseitem SET description= ? WHERE idItem= ?',
     [req.body.description, req.body.idItem],
     function (error, result) {
@@ -170,7 +181,7 @@ app.post(`/test/:idWarehouseItem`, function(req, res) {
 
 // Add new user, password is saved with bcrypt hash
 app.post(`/user`, function(req, res) {
-    dbConn.getConnection(function (err, connection) {
+    dbConn.getConnection(function () {
       
       const salt = bcrypt.genSaltSync(6);
     const passwordHash = bcrypt.hashSync(req.body.password, salt);
@@ -186,7 +197,7 @@ app.post(`/user`, function(req, res) {
 
 //Display your warehouse with detailed information
 app.get(`/warehouseinfo/:idCompany`, function(req, res) { 
-  dbConn.getConnection(function (err, connection) {
+  dbConn.getConnection(function () {
     dbConn.query('select *, date_format(lastEdited, "%d.%m.%Y : %H.%i.%s") as lastE from warehouseitem WHERE idCompany=?',[ req.params.idCompany], function(error, result) {
       if (error) throw error;
       console.log("warehouse fetched");     
@@ -195,9 +206,9 @@ app.get(`/warehouseinfo/:idCompany`, function(req, res) {
   });   
 });
 
-
+// display detailed information from warehouseitem, include editor name and last edit time to results
 app.get(`/warehouseinfo2/:idCompany`, function(req, res) { 
-  dbConn.getConnection(function (err, connection) {
+  dbConn.getConnection(function () {
     dbConn.query('select warehouseitem.row1, warehouseitem.floor, warehouseitem.place, warehouseitem.description, date_format(lastEdited, "%d.%m.%Y : %H.%i.%s") as lastEdit, user.firstname, user.lastname from warehouseitem inner join user on warehouseitem.idUser=user.idUser where warehouseitem.idCompany=?',[ req.params.idCompany], function(error, result) {
       if (error) throw error;
       console.log("warehouse fetched");     
@@ -208,7 +219,7 @@ app.get(`/warehouseinfo2/:idCompany`, function(req, res) {
 
   //Display user information
 app.get(`/user/:idUser`, function(req, res) { 
-  dbConn.getConnection(function (err, connection) {
+  dbConn.getConnection(function () {
     dbConn.query('SELECT * FROM user WHERE idUser=?',[req.body.idUser], function(error, result) {
       if (error) throw error;
       console.log("userinfo fetched");     
@@ -217,8 +228,9 @@ app.get(`/user/:idUser`, function(req, res) {
   });   
 });
 
+// get user information
 app.get(`/useri`, function(req, res) { 
-  dbConn.getConnection(function (err, connection) {
+  dbConn.getConnection(function () {
     dbConn.query('SELECT * FROM user WHERE idUser = ?',[req.body.idUser], function(error, result) {
       if (error) throw error;
       console.log("userinfo fetched");     
@@ -229,7 +241,7 @@ app.get(`/useri`, function(req, res) {
 
 // Add new itemslot to warehouse
   app.post(`/addslot/:idCompany`, function(req, res) {
-    dbConn.getConnection(function (err, connection) {      
+    dbConn.getConnection(function () {      
        dbConn.query('INSERT INTO warehouseitem (row1, floor, place, description, idCompany, idUser) VALUES ( ?, ?, ?, ?, ?, ?)',
       [ req.body.row1, req.body.floor, req.body.place, req.body.description, req.params.idCompany, req.body.idUser],
        function(error, result) {
@@ -242,7 +254,7 @@ app.get(`/useri`, function(req, res) {
 
 //Display one itemslot
 app.get(`/warehouseitem/:idItem`, function(req, res) { 
-  dbConn.getConnection(function (err, connection) {
+  dbConn.getConnection(function () {
     dbConn.query('SELECT * FROM warehouseItem WHERE idItem=?',[req.body.idItem], function(error, result) {
       if (error) throw error;
       console.log("warehouse fetched");     
@@ -253,7 +265,7 @@ app.get(`/warehouseitem/:idItem`, function(req, res) {
 
 // Update warehouseitemslot with new description
   app.post(`/edititem/:idItem`, function(req, res) {   
-    dbConn.getConnection(function (err, connection) {      
+    dbConn.getConnection(function () {      
       dbConn.query('UPDATE warehouseitem SET description = ?, idCompany = ? , idUser = ? WHERE idItem = ?',
        [ req.body.description, req.body.idCompany, req.body.idUser, req.params.idItem ],
       function(error, result) {
@@ -266,7 +278,7 @@ app.get(`/warehouseitem/:idItem`, function(req, res) {
 
   // Get last entry from company warehouse slots
   app.get(`/lastslot/:idCompany`, function(req, res) {
-    dbConn.getConnection(function (err, connection) {
+    dbConn.getConnection(function () {
       dbConn.query('select * from warehouseitem where idCompany = ? order by idItem desc limit 1',
       [ req.params.idCompany ],
       function(error, result){

@@ -1,8 +1,8 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import axios from "axios";
+
 
 function UpdateItem(props) {
 
@@ -12,7 +12,7 @@ function UpdateItem(props) {
     }
 
     const [description, setDescription] = useState('');    
-    const [item, setItem] = useState('');
+    //const [item, setItem] = useState('');
     const navigate = useNavigate();
     const {idItem} = useParams('');
 
@@ -54,7 +54,7 @@ function UpdateItem(props) {
         
             }
           };
-
+/*
           useEffect(() => {
             const storage = async () => {
                 const response = await axios.get(
@@ -62,7 +62,7 @@ function UpdateItem(props) {
                     setItem(response.data);  }
                     storage()
         }, []);
-          
+  */        
         if (userJwt == null){
             return (
                 <div><h2>You are logged out.</h2>

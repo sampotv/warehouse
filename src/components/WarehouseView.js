@@ -61,12 +61,12 @@ if (userJwt == null){
      <div className='formRight'><Link to={`/editinfo`}><button>Show detailed update information</button></Link></div></div>
         {searchItems.length ? searchItems.map((item) => (
         <div>
-            <div key={item.idUser} className=''>
+            <div key={item.idUser} className='up'>
               <div className='formflex' >
-              <div className='formbox' ><div className='App' >{item.row1 }</div></div>
-              <div className='formbox' >{item.floor} </div>
-              <div className='formbox' >{item.place}</div>
-              <div className='formboxdesc' >{item.description} </div>
+              <div className='formbox' ><div className='slidetextright' >{item.row1 }</div></div>
+              <div className='formbox' ><div className='slidetextright'>{item.floor} </div></div>
+              <div className='formbox' ><div className='slidetextright'>{item.place}</div></div>
+              <div className='formboxdesc' ><div className='slidetextright'>{item.description} </div></div>
               <Link to ={`/edititem/${item.idItem}`}><button>Edit content</button></Link> </div>
                 </div></div>
               
