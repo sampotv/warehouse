@@ -69,7 +69,8 @@ function AddSlot(props){
                     `http://localhost:2000/lastslot/${decoded.idCompany}`);
                     setItem(response.data);  }
                     storage();
-        }, []);
+        // eslint-disable-next-line
+                  }, []);
         
         if (userJwt == null){
           return (

@@ -21,7 +21,8 @@ export default function Test(props) {
                 `http://localhost:2000/company/${decoded.idCompany}`);
                 setCompany(response.data);  }
                 comp();
-    }, []);
+    // eslint-disable-next-line
+            }, []);
 
 if (userJwt == null){
     return (

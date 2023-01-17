@@ -18,7 +18,8 @@ export default function WarehouseView(props) {
             `http://localhost:2000/warehouseinfo2/${decoded.idCompany}`);
             setItem(response.data);  }
             storage();
-}, []);
+// eslint-disable-next-line
+        }, []);
 
 const [whitem, setWhitem] = useState('');
 const filter = (e) => {
