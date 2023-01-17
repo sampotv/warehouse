@@ -1,4 +1,4 @@
-This is a MySQL, node.js, React project.
+This is a MySQL, node.js, React project. Back at /src/routes.js
 
 Main purpose of this application is to build a warehouse configuration and add items on specified places. User can then update itemslots for new arrivals or deliveries.
 First you create an user and login
