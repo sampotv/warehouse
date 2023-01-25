@@ -16,13 +16,12 @@ export default function Test(props) {
 }
 
     useEffect(() => {
-        const comp = async () => {
+        async function comp() {
             const response = await axios.get(
                 `http://localhost:2000/company/${decoded.idCompany}`);
                 setCompany(response.data);  }
                 comp();
-    // eslint-disable-next-line
-            }, []);
+            }, [decoded.idCompany]);
 
 if (userJwt == null){
     return (
