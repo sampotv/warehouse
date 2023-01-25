@@ -13,13 +13,13 @@ export default function WarehouseView(props) {
   const [item, setItem] = useState([]);
  
   useEffect(() => {
-    const storage = async () => {
+    async function storage() {
         const response = await axios.get(
             `http://localhost:2000/warehouseinfo2/${decoded.idCompany}`);
             setItem(response.data);  }
             storage();
-// eslint-disable-next-line
-        }, []);
+
+        }, [decoded.idCompany]);
 
 const [whitem, setWhitem] = useState('');
 const filter = (e) => {

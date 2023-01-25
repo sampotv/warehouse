@@ -26,13 +26,12 @@ export default function WarehouseView(props) {
   */
 
   useEffect(() => {
-    const storage = async () => {
+    async function storage() {
         const response = await axios.get(
             `http://localhost:2000/warehouse/${decoded.idCompany}`);
             setItem(response.data);  }
             storage();
-// eslint-disable-next-line
-          }, []);
+          }, [decoded.idCompany]);
  
 const [whitem, setWhitem] = useState('');
 const filter = (e) => {

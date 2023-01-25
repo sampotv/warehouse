@@ -64,13 +64,12 @@ function AddSlot(props){
 
 
           useEffect(() => {
-            const storage = async () => {
+            async function storage() {
                 const response = await axios.get(
                     `http://localhost:2000/lastslot/${decoded.idCompany}`);
                     setItem(response.data);  }
-                    storage();
-        // eslint-disable-next-line
-                  }, []);
+                    storage();        
+                  }, [decoded.idCompany]);
         
         if (userJwt == null){
           return (
