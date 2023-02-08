@@ -27,11 +27,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node src/routes.js && npm start",
-<<<<<<< HEAD
-    
-=======
->>>>>>> 77d67388d30b7705ad56d7cdf0ae16b424c9ce70
+    "start": "react-scripts start",    
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
