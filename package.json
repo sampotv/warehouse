@@ -28,7 +28,10 @@
   },
   "scripts": {
     "start": "node src/routes.js && npm start",
+<<<<<<< HEAD
     
+=======
+>>>>>>> 77d67388d30b7705ad56d7cdf0ae16b424c9ce70
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
