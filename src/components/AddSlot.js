@@ -24,7 +24,7 @@ function AddSlot(props){
         e.preventDefault();
         
         try {
-            let res = await fetch(`http://localhost:2000/addslot/${decoded.idCompany}`, {
+            let res = await fetch(`https://warehouse0.netlify.app/addslot/${decoded.idCompany}`, {
                 method: 'POST',
                 headers: {
                   "Content-Type": "application/json",
@@ -66,7 +66,7 @@ function AddSlot(props){
           useEffect(() => {
             async function storage() {
                 const response = await axios.get(
-                    `http://localhost:2000/lastslot/${decoded.idCompany}`);
+                    `https://warehouse0.netlify.app/lastslot/${decoded.idCompany}`);
                     setItem(response.data);  }
                     storage();        
                   }, [decoded.idCompany]);

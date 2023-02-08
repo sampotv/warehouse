@@ -17,7 +17,7 @@ let addUser = async (e) => {
     e.preventDefault();
 
 try {
-    let res = await fetch(`http://localhost:2000/user`, {
+    let res = await fetch(`https://warehouse0.netlify.app/user`, {
         method: 'POST',
         headers: {"Content-Type": "application/json",},
         body: JSON.stringify( {

@@ -29,9 +29,6 @@ function App() {
 */
 
 
-
-
-
   return (
     <div className="App">
       <div>Authentication status: { userJwt != null ? "Logged in" : "Not logged in" } </div>

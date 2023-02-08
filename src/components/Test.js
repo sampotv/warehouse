@@ -31,7 +31,7 @@ export default function Test(props) {
     useEffect(() => {
         const storage = async () => {
             const response = await axios.get(
-                `http://localhost:2000/test/`);
+                `https://warehouse0.netlify.app/test/`);
                 setStorage(response.data);  }
                 storage();
 }, []);
@@ -61,7 +61,7 @@ return (
     const [ storages, setStorage ] = useState([]);
 
    useEffect(async () => {
-        const storage = await fetch(`http://localhost:2000/test`)
+        const storage = await fetch(`https://warehouse0.netlify.app/test`)
         .then((res) =>
             res.json()
         )
@@ -104,7 +104,7 @@ function updateItem(props) {
 
     const getItems = async () => {
         console.warn(params)
-        let res = await fetch(`http://localhost:2000/warehouse/${params.idCompany}`);
+        let res = await fetch(`https://warehouse0.netlify.app/warehouse/${params.idCompany}`);
         res = await res.json();
         console.warn(res);
         setRow1(res.row1);
@@ -114,7 +114,7 @@ function updateItem(props) {
     }
     const updateItem = async () => {
         console.warn(row1, floor, place, description)
-        let res = await fetch(`http://localhost:2000/warehouse/${params.idCompany}`, {
+        let res = await fetch(`https://warehouse0.netlify.app/warehouse/${params.idCompany}`, {
             method: 'Put',
             body: JSON.stringify({ row1, floor, place, description }),
             headers: {

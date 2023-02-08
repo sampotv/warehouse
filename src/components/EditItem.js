@@ -23,7 +23,7 @@ function UpdateItem(props) {
         e.preventDefault();
         
         try {
-            let res = await fetch(`http://localhost:2000/edititem/${idItem}`, {
+            let res = await fetch(`https://warehouse0.netlify.app/edititem/${idItem}`, {
                 method: 'POST',
                 headers: {
                   "Content-Type": "application/json",
@@ -58,7 +58,7 @@ function UpdateItem(props) {
           useEffect(() => {
             const storage = async () => {
                 const response = await axios.get(
-                    `http://localhost:2000/warehouseitem/${decoded.idItem}`);
+                    `https://warehouse0.netlify.app/warehouseitem/${decoded.idItem}`);
                     setItem(response.data);  }
                     storage()
         }, []);
