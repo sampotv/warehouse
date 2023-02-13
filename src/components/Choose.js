@@ -18,7 +18,7 @@ export default function Test(props) {
     useEffect(() => {
         async function comp() {
             const response = await axios.get(
-                `https://warehouse0.netlify.app/company/${decoded.idCompany}`);
+                `https://warehouse1.herokuapp.com/company/${decoded.idCompany}`);
                 setCompany(response.data);  }
                 comp();
             }, [decoded.idCompany]);

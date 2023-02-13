@@ -15,7 +15,7 @@ export default function WarehouseView(props) {
 
     /*
   useEffect(async () => {
-    const user = await fetch(`https://warehouse0.netlify.app/warehouse/${decoded.idCompany}`)
+    const user = await fetch(`https://warehouse1.herokuapp.com/warehouse/${decoded.idCompany}`)
     .then((res) =>
       res.json()
     )
@@ -28,7 +28,7 @@ export default function WarehouseView(props) {
   useEffect(() => {
     async function storage() {
         const response = await axios.get(
-            `https://warehouse0.netlify.app/warehouse/${decoded.idCompany}`);
+            `https://warehouse1.herokuapp.com/warehouse/${decoded.idCompany}`);
             setItem(response.data);  }
             storage();
           }, [decoded.idCompany]);

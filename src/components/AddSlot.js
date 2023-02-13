@@ -24,7 +24,7 @@ function AddSlot(props){
         e.preventDefault();
         
         try {
-            let res = await fetch(`https://warehouse0.netlify.app/addslot/${decoded.idCompany}`, {
+            let res = await fetch(`https://warehouse1.herokuapp.com/addslot/${decoded.idCompany}`, {
                 method: 'POST',
                 headers: {
                   "Content-Type": "application/json",
@@ -66,7 +66,7 @@ function AddSlot(props){
           useEffect(() => {
             async function storage() {
                 const response = await axios.get(
-                    `https://warehouse0.netlify.app/lastslot/${decoded.idCompany}`);
+                    `https://warehouse1.herokuapp.com/lastslot/${decoded.idCompany}`);
                     setItem(response.data);  }
                     storage();        
                   }, [decoded.idCompany]);

@@ -23,7 +23,7 @@ function UpdateItem(props) {
         e.preventDefault();
         
         try {
-            let res = await fetch(`https://warehouse0.netlify.app/edititem/${idItem}`, {
+            let res = await fetch(`https://warehouse1.herokuapp.com/edititem/${idItem}`, {
                 method: 'POST',
                 headers: {
                   "Content-Type": "application/json",
@@ -58,7 +58,7 @@ function UpdateItem(props) {
           useEffect(() => {
             const storage = async () => {
                 const response = await axios.get(
-                    `https://warehouse0.netlify.app/warehouseitem/${decoded.idItem}`);
+                    `https://warehouse1.herokuapp.com/warehouseitem/${decoded.idItem}`);
                     setItem(response.data);  }
                     storage()
         }, []);

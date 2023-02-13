@@ -15,7 +15,7 @@ export default function WarehouseView(props) {
   useEffect(() => {
     async function storage() {
         const response = await axios.get(
-            `https://warehouse0.netlify.app/warehouseinfo2/${decoded.idCompany}`);
+            `https://warehouse1.herokuapp.com/warehouseinfo2/${decoded.idCompany}`);
             setItem(response.data);  }
             storage();
 

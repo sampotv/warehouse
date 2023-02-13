@@ -1,6 +1,6 @@
 This is a MySQL, node.js, React project. Back at /src/routes.js
 
-Run application https://warehouse0.netlify.app/ database connection is not available at the moment, searching for new server. Database runs only locally on localhost.
+Run application https://warehouse1.herokuapp.com/ database connection is not available at the moment, searching for new server. Database runs only locally on localhost.
 
 Main purpose of this application is to build a warehouse configuration and add items on specified places. User can then update itemslots for new arrivals or deliveries.
 First you create an user and login
