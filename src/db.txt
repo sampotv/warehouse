@@ -79,3 +79,14 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+
+
+database: warehousedb
+username: 69tgqbwxdqpnkdvs8m2u
+host: eu-west.connect.psdb.cloud
+password: pscale_pw_Qd2GSN8fvn4DYDw3qeE0bjola1TIhWwYWDSWQBgbKCc
+
+DATABASE_URL='mysql://69tgqbwxdqpnkdvs8m2u:************@eu-west.connect.psdb.cloud/warehousedb?ssl={"rejectUnauthorized":true}'
+
+DATABASE_URL='mysql://69tgqbwxdqpnkdvs8m2u:pscale_pw_Qd2GSN8fvn4DYDw3qeE0bjola1TIhWwYWDSWQBgbKCc@eu-west.connect.psdb.cloud/warehousedb?ssl={"rejectUnauthorized":true}'
+//"start": "node src/routes.js && npm start",

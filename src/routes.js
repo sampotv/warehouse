@@ -8,6 +8,8 @@ const bcrypt = require('bcryptjs');
 
 //DATABASE_URL='mysql://69tgqbwxdqpnkdvs8m2u:pscale_pw_Qd2GSN8fvn4DYDw3qeE0bjola1TIhWwYWDSWQBgbKCc@eu-west.connect.psdb.cloud/warehousedb?ssl={"rejectUnauthorized":true}'
 
+const PORT = process.env.PORT || 2000;
+
 const dbConn = mysql.createPool({
 	host:'eu-west.connect.psdb.cloud',
 	user:'69tgqbwxdqpnkdvs8m2u',
@@ -295,6 +297,6 @@ app.get(`/warehouseitem/:idItem`, function(req, res) {
     })
   })
 
-app.listen(2000, () => {
-    console.log('check http://localhost:2000/ to see the data.');
-});
+app.listen(PORT, () => 
+    console.log(`Server is listening on port ${PORT}...`)
+);
