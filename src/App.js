@@ -7,7 +7,6 @@ import Frontpage from './components/Frontpage';
 import TopBar from './components/TopBar';
 import CreateUser from './components/CreateUser';
 import WarehouseView from './components/WarehouseView';
-import Test from './components/Test';
 import Choose from './components/Choose';
 import EditItem from './components/EditItem';
 import EditInfo from './components/EditInfo';
@@ -35,14 +34,13 @@ function App() {
      <BrowserRouter>
         <TopBar />
           <Routes>
-            <Route path="/Login" element = { <Login setUserJwt={ setUserJwt } />} />
+            <Route path="/login" element = { <Login setUserJwt={ setUserJwt } />} />
             <Route path="/" element = { <Frontpage/> } />
             <Route path="/CreateUser" element = {<CreateUser userJwt={ userJwt } />} />      
             <Route path="/WarehouseView" element = { <WarehouseView userJwt={ userJwt } />} />
             <Route path="/addslot/:companyId" element={<AddSlot userJwt={ userJwt } /> }/>
             <Route path="/Choose" element={<Choose userJwt={ userJwt} /> } />
             <Route path="/edititem/:idItem" element={<EditItem userJwt={ userJwt } /> } />
-            <Route path="/Update/:idWarehouseItem" element={<Test userJwt={ userJwt } /> } />
             <Route path="/editinfo" element = { <EditInfo userJwt={ userJwt } /> } />
           </Routes>
       

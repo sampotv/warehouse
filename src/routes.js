@@ -23,7 +23,6 @@ const dbConn = mysql.createPool({
 });
 
 
-
 const app = express();
 app.use(cors());
 app.use(bodyParser.json({limit: "50mb"}));
