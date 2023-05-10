@@ -11,7 +11,7 @@ const bcrypt = require('bcryptjs');
 const PORT = process.env.PORT || 3000;
 
 const dbConn = mysql.createPool({
-	host:'eu-west.connect.psdb.cloud',
+	host:'aws.connect.psdb.cloud',
 	user:'69tgqbwxdqpnkdvs8m2u',
 	password:'pscale_pw_Qd2GSN8fvn4DYDw3qeE0bjola1TIhWwYWDSWQBgbKCc',
 	database:'warehousedb',
