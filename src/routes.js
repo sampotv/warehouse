@@ -12,8 +12,8 @@ const PORT = process.env.PORT || 3000;
 
 const dbConn = mysql.createPool({
 	host:'aws.connect.psdb.cloud',
-	user:'69tgqbwxdqpnkdvs8m2u',
-	password:'pscale_pw_Qd2GSN8fvn4DYDw3qeE0bjola1TIhWwYWDSWQBgbKCc',
+	user:'zxosr2jpgphrnrr473fn',
+	password:'pscale_pw_PfZyL3burGnvbXFtj8Idyr4GVcCxl006NzgP0Z6Ga7',
 	database:'warehousedb',
   ssl: {
     rejectUnauthorized: true,
