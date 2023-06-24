@@ -1,6 +1,6 @@
 This is a MySQL, node.js, React project. Back at /src/routes.js
 
-Run application (you can use testuser username: 123 passw: 123) https://63ebd3c9e9883b00080802b8--warehouse0.netlify.app/
+Run application (you can use testuser username: 123 passw: 123) http://88.112.129.105:3001/
 
 Main purpose of this application is to build a warehouse configuration and add items on specified places. User can then update itemslots for new arrivals or deliveries.
 First you create an user and login
