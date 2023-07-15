@@ -1,6 +1,6 @@
 This is a MySQL, node.js, React project. Back at /src/routes.js
 
-Run application (you can use testuser username: 123 passw: 123) http://88.112.129.105:3001/
+Run application (you can use testuser username: 123 passw: 123) http://88.112.131.181:3001/
 
 Main purpose of this application is to build a warehouse configuration and add items on specified places. User can then update itemslots for new arrivals or deliveries.
 First you create an user and login
